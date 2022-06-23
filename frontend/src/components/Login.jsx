@@ -7,10 +7,11 @@ import logo from '../assets/logo_white.png';
 
 import { useEffect } from 'react';
 import { gapi } from 'gapi-script';
+import { client } from '../client';
 
 const Login = () => {
-    
-        useEffect(() => {
+    const navigate = useNavigate();
+    useEffect(() => {
         function start() {
             gapi.client.init({
                 clientId: process.env.REACT_APP_GOOGLE_API_TOKEN,
@@ -22,9 +23,21 @@ const Login = () => {
 
 
     const responseGoogle = (response) => {
-        console.log(response)
-    }
+        localStorage.setItem('user', JSON.stringify(response.profileObj));
+        const { name, googleId, imageUrl} = response.profileObj;
+        console.log(name, googleId)
+        const doc = {
+            _id: googleId,
+            _type: 'user',
+            userName: name,
+            image: imageUrl,
+          };
 
+        client.createIfNotExists(doc).then(() => {
+        navigate('/', { replace: true });
+        });
+    }
+    
     return (
         <div className="flex justify-start items-center flex-col h-screen">
             <div className=" relative w-full h-full">
