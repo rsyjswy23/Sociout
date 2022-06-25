@@ -99,3 +99,68 @@ export const userQuery = (userId) => {
           },
         },
       } `;
+
+// this query fetches pin detail(including title, message, link, postedBy)
+export const pinDetailQuery = (pinId) => {
+  const query = `*[_type == "pin" && _id == '${pinId}']{
+    image{
+      asset->{
+        url
+      }
+    },
+    _id,
+    title, 
+    about,
+    category,
+    destination,
+    postedBy->{
+      _id,
+      userName,
+      image
+    },
+    save[]{
+      postedBy->{
+        _id,
+        userName,
+        image
+      },
+    },
+    comments[]{
+      comment,
+      _key,
+      postedBy->{
+        _id,
+        userName,
+        image
+      },
+    }
+  }`;
+  return query;
+};
+
+// this query fetches related pins with given pin
+export const pinDetailMorePinQuery = (pin) => {
+  const query = `*[_type == "pin" && category == '${pin.category}' && _id != '${pin._id}' ]{
+    image{
+      asset->{
+        url
+      }
+    },
+    _id,
+    destination,
+    postedBy->{
+      _id,
+      userName,
+      image
+    },
+    save[]{
+      _key,
+      postedBy->{
+        _id,
+        userName,
+        image
+      },
+    },
+  }`;
+  return query;
+};
