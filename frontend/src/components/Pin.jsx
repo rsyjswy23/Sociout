@@ -21,7 +21,7 @@ const Pin = ({ pin }) => {
   const { postedBy, image, _id, destination } = pin;
   
   const user = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
-  // console.log(postedBy, user)
+  // console.log(postedBy)
   const deletePin = (id) => {
     client
       .delete(id)
@@ -133,13 +133,14 @@ const Pin = ({ pin }) => {
           </div>
         )}
       </div>
-      <Link to={`/user-profile/${user?._id}`} className="flex gap-2 mt-2 items-center">
+      {/* {console.log(pin)} */}
+      <Link to={`/user-profile/${postedBy?._id}`} className="flex gap-2 mt-2 items-center">
         <img
           className="w-8 h-8 rounded-full object-cover"
-          src={user?.imageUrl}
+          src={postedBy?.image}
           alt="user-profile"
         />
-        <p className="capitalize">{user?.name}</p>
+        <p className="capitalize">{postedBy?.userName}</p>
       </Link>
     </div>
   );
