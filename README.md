@@ -1,3 +1,4 @@
+![Sociout-logos_transparent](https://user-images.githubusercontent.com/101481587/175834520-2435f458-d5ae-4a0c-b653-d7d96cb59f68.png)
 # [Sociout](https://sociout-hui.netlify.app/)
 Sociout is a social media app (Pinterest clone). Please try to explore it: https://sociout-hui.netlify.app/
 
