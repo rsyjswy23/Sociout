@@ -27,6 +27,7 @@ const Feed = () => {
         });
       }
     }, [categoryId]);
+    
     const ideaName = categoryId || 'new';
     if (loading) {
       return (
