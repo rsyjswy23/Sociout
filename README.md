@@ -2,6 +2,10 @@
 
 Sociout is a social media app (Pinterest clone).
 
+Sociout supports the following features:
+
+
+
 
 Implementation:
 
@@ -23,7 +27,7 @@ Step 5: Added Home, Sidebar, Navbar componenets.
 Step 6: Added Feed, Pins, MansonryLayout components.
     Feed: Query from DB and display pics in MansonryLayout if user picked categories, if not, fetch random pics from DB to display.
     Pins: display all pins.
-    MansonryLayout: adjust numbers of cols to display based on pic pixel.
+    MansonryLayout: adjust numbers of cols to display on screen based on pic pixel.
 
 Step 7: Added Pin component. Each Pin supports features: Save, Download, Redirect to PinDetail. 
 
@@ -31,7 +35,7 @@ Step 8: Added CreatePin component. It allows user upload pin if the image type i
 
 Step 9: Added PinDetail component & DB query to fetch pin details and related pins in the same category of current pin. 
 
-Step 10: 
+Step 10: Add Search component & DB query to fetch pins with given searchTerm and pins from all categories when searchTerm is not specified.
 
-Step 11:
+Step 11: deployed to Netlify: https://sociout-hui.netlify.app
 
