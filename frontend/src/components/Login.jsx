@@ -11,6 +11,7 @@ import { client } from '../client';
 
 const Login = () => {
     const navigate = useNavigate();
+    
     useEffect(() => {
         function start() {
             gapi.client.init({
